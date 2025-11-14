@@ -2,6 +2,8 @@
 
 A modern, minimalist portfolio website built with vanilla HTML, CSS, and JavaScript.
 
+live demo https://codesavinash-github-io-sau7.vercel.app/
+
 ## Features
 
 - **Responsive Design**: Fully responsive layout that works on mobile, tablet, and desktop devices
