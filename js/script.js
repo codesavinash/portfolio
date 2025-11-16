@@ -176,11 +176,12 @@ if (filterButtons.length > 0 && projectCards.length > 0) {
         let visibleIndex = 0;
         projectCards.forEach((card) => {
             const cardCategory = card.dataset.category;
+            const isComingSoon = card.classList.contains('project__card--coming-soon');
             
             // Remove fade-in class first
             card.classList.remove('fade-in');
             
-            if (category === 'all' || cardCategory === category) {
+            if (category === 'all' || cardCategory === category || isComingSoon) {
                 // Show card
                 card.classList.remove('hidden');
                 
@@ -286,7 +287,7 @@ const designProject2Images = [
     'images/wdsgn2.10.png'
 ];
 
-// Image paths for design project 3 (Web Dashboard Design)
+// Image paths for design project 3 (SmartChef UI/UX)
 const designProject3Images = [
     'images/wdsgn1.1.png',
     'images/wdsgn1.2.png',
@@ -476,4 +477,32 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
+
+// ===== AWS Certification Image Modal =====
+const awsCertificationTitle = document.getElementById('aws-certification-title');
+const awsCloudImage = ['images/awsCloud.png'];
+
+if (awsCertificationTitle) {
+    awsCertificationTitle.addEventListener('click', (e) => {
+        e.preventDefault();
+        openGallery(awsCloudImage, 0);
+    });
+}
+
+// ===== Logo Collection Gallery =====
+const logoCollectionView = document.getElementById('logo-collection-view');
+const logoCollectionImages = [
+    'images/LG1.png',
+    'images/LG2.png',
+    'images/LG3.png',
+    'images/LG4.png',
+    'images/LG5.png'
+];
+
+if (logoCollectionView) {
+    logoCollectionView.addEventListener('click', (e) => {
+        e.preventDefault();
+        openGallery(logoCollectionImages, 0);
+    });
+}
 
