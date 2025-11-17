@@ -82,9 +82,11 @@ window.addEventListener('scroll', scrollHeader);
 
 // ===== Form Validation and Handling =====
 const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+const submitBtn = document.getElementById('submit-btn');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Get form values
@@ -94,22 +96,79 @@ if (contactForm) {
         
         // Basic validation
         if (!name || !email || !message) {
-            alert('Please fill in all fields.');
+            showFormStatus('Please fill in all fields.', 'error');
             return;
         }
         
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.');
+            showFormStatus('Please enter a valid email address.', 'error');
             return;
         }
         
-        // In a real application, you would send this data to a server
-        // For now, we'll just show a success message
-        alert('Thank you for your message! I will get back to you soon.');
-        contactForm.reset();
+        // Disable submit button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+        formStatus.style.display = 'none';
+        
+        try {
+            // Create FormData object
+            const formData = new FormData(contactForm);
+            
+            // Submit to Web3Forms
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok && result.success) {
+                showFormStatus('Thank you for your message! I will get back to you soon.', 'success');
+                contactForm.reset();
+            } else {
+                showFormStatus('Sorry, there was an error sending your message. Please try again later.', 'error');
+            }
+        } catch (error) {
+            showFormStatus('Sorry, there was an error sending your message. Please try again later.', 'error');
+            console.error('Form submission error:', error);
+        } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        }
     });
+}
+
+// Function to show form status messages
+function showFormStatus(message, type) {
+    if (!formStatus) return;
+    
+    formStatus.textContent = message;
+    formStatus.style.display = 'block';
+    formStatus.className = 'form__status';
+    
+    if (type === 'success') {
+        formStatus.style.color = '#10b981';
+        formStatus.style.backgroundColor = '#d1fae5';
+        formStatus.style.padding = '12px';
+        formStatus.style.borderRadius = '4px';
+        formStatus.style.marginBottom = '16px';
+    } else if (type === 'error') {
+        formStatus.style.color = '#ef4444';
+        formStatus.style.backgroundColor = '#fee2e2';
+        formStatus.style.padding = '12px';
+        formStatus.style.borderRadius = '4px';
+        formStatus.style.marginBottom = '16px';
+    }
+    
+    // Auto-hide success message after 5 seconds
+    if (type === 'success') {
+        setTimeout(() => {
+            formStatus.style.display = 'none';
+        }, 5000);
+    }
 }
 
 // ===== Scroll Animation on Elements =====
@@ -503,6 +562,27 @@ if (logoCollectionView) {
     logoCollectionView.addEventListener('click', (e) => {
         e.preventDefault();
         openGallery(logoCollectionImages, 0);
+    });
+}
+
+// ===== Lenovo Certification Image Modal =====
+const lenovoCertificationTitle = document.getElementById('lenovo-certification-title');
+const lenovoCertificationImages = [
+    'images/L1.png',
+    'images/L2.png',
+    'images/L3.png',
+    'images/L4.png',
+    'images/L5.png',
+    'images/L6.png',
+    'images/L7.png',
+    'images/L8.png',
+    'images/L9.png'
+];
+
+if (lenovoCertificationTitle) {
+    lenovoCertificationTitle.addEventListener('click', (e) => {
+        e.preventDefault();
+        openGallery(lenovoCertificationImages, 0);
     });
 }
 

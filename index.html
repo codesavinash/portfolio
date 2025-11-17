@@ -270,7 +270,7 @@
                         <div class="certification__icon">
                             <img src="images/logos/lenovo.png" alt="Lenovo Logo" class="certification__logo" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>Lenovo</span>';">
                         </div>
-                        <h3 class="certification__title">Lenovo Certified Computer Technician</h3>
+                        <h3 class="certification__title" id="lenovo-certification-title" style="cursor: pointer;">Lenovo Certified Computer Technician</h3>
                         <p class="certification__description">Specialized certification in Lenovo hardware maintenance, repair, and technical support</p>
                     </div>
                 </div>
@@ -468,7 +468,10 @@
                             <a href="https://github.com/codesavinash" target="_blank" rel="noopener noreferrer" class="contact__social-link" aria-label="GitHub">GitHub</a>
                         </div>
                     </div>
-                    <form class="contact__form" id="contact-form">
+                    <form class="contact__form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="2c353549-d608-40ca-884a-22ba88b6e69e">
+                        <input type="hidden" name="subject" value="New Contact Form Submission from Portfolio">
+                        <input type="hidden" name="from_name" value="Portfolio Contact Form">
                         <div class="form__group">
                             <label for="name" class="form__label">Name</label>
                             <input type="text" id="name" name="name" class="form__input" required>
@@ -481,7 +484,8 @@
                             <label for="message" class="form__label">Message</label>
                             <textarea id="message" name="message" class="form__input form__textarea" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="button button--primary">Send Message</button>
+                        <div id="form-status" class="form__status" style="display: none;"></div>
+                        <button type="submit" class="button button--primary" id="submit-btn">Send Message</button>
                     </form>
                 </div>
             </div>
