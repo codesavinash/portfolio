@@ -586,3 +586,54 @@ if (lenovoCertificationTitle) {
     });
 }
 
+// ===== Coming Soon Video Handling =====
+document.addEventListener('DOMContentLoaded', function() {
+    const comingSoonVideo = document.getElementById('coming-soon-video');
+    const comingSoonFallback = document.getElementById('coming-soon-fallback');
+    
+    if (comingSoonVideo) {
+        // Handle video load errors
+        comingSoonVideo.addEventListener('error', function(e) {
+            console.error('Video failed to load. Error code:', comingSoonVideo.error ? comingSoonVideo.error.code : 'unknown');
+            console.error('Video source:', comingSoonVideo.querySelector('source')?.src);
+            if (comingSoonVideo) {
+                comingSoonVideo.style.display = 'none';
+            }
+            if (comingSoonFallback) {
+                comingSoonFallback.style.display = 'flex';
+            }
+        });
+        
+        // Check if video can play
+        comingSoonVideo.addEventListener('loadeddata', function() {
+            console.log('Video loaded successfully');
+            // Try to play the video
+            comingSoonVideo.play().catch(function(error) {
+                console.warn('Autoplay prevented:', error);
+            });
+        });
+        
+        // Try to play when video is ready
+        comingSoonVideo.addEventListener('canplay', function() {
+            comingSoonVideo.play().catch(function(error) {
+                console.warn('Video play failed:', error);
+            });
+        });
+        
+        // Fallback if video doesn't load after a timeout
+        setTimeout(function() {
+            if (comingSoonVideo && comingSoonVideo.readyState < 2) {
+                console.warn('Video taking too long to load, showing fallback');
+                if (comingSoonVideo) {
+                    comingSoonVideo.style.display = 'none';
+                }
+                if (comingSoonFallback) {
+                    comingSoonFallback.style.display = 'flex';
+                }
+            }
+        }, 3000);
+    }
+});
+
+
+

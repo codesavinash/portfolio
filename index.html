@@ -202,7 +202,7 @@
                             </div>
                             <div class="skill__card">
                                 <div class="skill__icon">
-                                    <img src="images/logos/xcode.png" alt="Xcode Logo" class="skill__logo" onerror="this.style.display='none'; this.parentElement.innerHTML='Xcode';">
+                                    <img src="images/logos/Xcode.png" alt="Xcode Logo" class="skill__logo" onerror="this.style.display='none'; this.parentElement.innerHTML='Xcode';">
                                 </div>
                                 <h4 class="skill__name">Xcode</h4>
                             </div>
@@ -219,25 +219,25 @@
                         <div class="skills__grid">
                             <div class="skill__card">
                                 <div class="skill__icon">
-                                    <span>Fedora</span>
+                                    <img src="images/logos/fedora.png" alt="Fedora Logo" class="skill__logo" onerror="this.style.display='none'; this.parentElement.innerHTML='Fedora';">
                                 </div>
                                 <h4 class="skill__name">Fedora</h4>
                             </div>
                             <div class="skill__card">
                                 <div class="skill__icon">
-                                    <span>Ubuntu</span>
+                                    <img src="images/logos/ubuntu.png" alt="Ubuntu Logo" class="skill__logo" onerror="this.style.display='none'; this.parentElement.innerHTML='Ubuntu';">
                                 </div>
                                 <h4 class="skill__name">Ubuntu</h4>
                             </div>
                             <div class="skill__card">
                                 <div class="skill__icon">
-                                    <span>macOS</span>
+                                    <img src="images/logos/macos.png" alt="macOS Logo" class="skill__logo" onerror="this.style.display='none'; this.parentElement.innerHTML='macOS';">
                                 </div>
                                 <h4 class="skill__name">macOS</h4>
                             </div>
                             <div class="skill__card">
                                 <div class="skill__icon">
-                                    <span>Windows</span>
+                                    <img src="images/logos/windows.png" alt="Windows Logo" class="skill__logo" onerror="this.style.display='none'; this.parentElement.innerHTML='Windows';">
                                 </div>
                                 <h4 class="skill__name">Windows</h4>
                             </div>
@@ -369,13 +369,13 @@
                                 <span class="project__tag">JavaScript</span>
                             </div>
                             <h3 class="project__title">VaporEdge Motors Web Page</h3>
-                            <p class="project__description">A fully responsive website built with modern HTML5, CSS3, and vanilla JavaScript.</p>
+                            <p class="project__description">A modern, responsive website for a futuristic electric motorcycle brand, featuring dynamic layouts, clean UI, and smooth navigation.</p>
                             <a href="https://codesavinash.github.io/Vapor_Edge_Motors/models.html" target="_blank" rel="noopener noreferrer" class="project__button">Visit Website</a>
                         </div>
                     </div>
                     <div class="project__card project__card--web" data-category="web">
                         <div class="project__image">
-                            <img src="images/web2.1.png" alt="Interactive Web Application Thumbnail" class="project__thumbnail">
+                            <img src="images/web2.1.png" alt="Avion Robotics Thumbnail" class="project__thumbnail">
                         </div>
                         <div class="project__content">
                             <div class="project__tags">
@@ -383,14 +383,14 @@
                                 <span class="project__tag">CSS</span>
                                 <span class="project__tag">JavaScript</span>
                             </div>
-                            <h3 class="project__title">Interactive Web Application</h3>
-                            <p class="project__description">Dynamic web application with interactive features and smooth animations using modern JavaScript.</p>
+                            <h3 class="project__title">Avion Robotics</h3>
+                            <p class="project__description">A modern, responsive website for a robotics company, featuring interactive elements, dynamic animations, and an engaging user experience showcasing innovative robotic solutions.</p>
                             <a href="https://codesavinash.github.io/Avios_Robotics/" target="_blank" rel="noopener noreferrer" class="project__button">Visit Website</a>
                         </div>
                     </div>
                     <div class="project__card project__card--web" data-category="web">
                         <div class="project__image">
-                            <div class="project__placeholder">Web Project</div>
+                            <div class="project__placeholder">Coming Soon</div>
                         </div>
                         <div class="project__content">
                             <div class="project__tags">
@@ -399,7 +399,7 @@
                                 <span class="project__tag">JavaScript</span>
                             </div>
                             <h3 class="project__title">E-Commerce Landing Page</h3>
-                            <p class="project__description">Modern e-commerce landing page with product showcase and shopping cart functionality.</p>
+                            <p class="project__description">Coming Soon - Modern e-commerce landing page with product showcase and shopping cart functionality.</p>
                         </div>
                     </div>
                     <div class="project__card project__card--web" data-category="web">
@@ -436,8 +436,12 @@
 
                     <!-- More Projects Coming Soon -->
                     <div class="project__card project__card--coming-soon" data-category="all">
-                        <div class="project__image">
-                            <div class="project__placeholder">Coming Soon</div>
+                        <div class="project__image" style="background-color: #ffffff;">
+                            <video id="coming-soon-video" autoplay loop muted playsinline preload="auto" style="width: 100%; height: 100%; object-fit: cover; display: block; background-color: #ffffff;">
+                                <source src="images/loading.webm" type="video/webm">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div id="coming-soon-fallback" class="project__placeholder" style="display: none;">Coming Soon</div>
                         </div>
                         <div class="project__content">
                             <h3 class="project__title">More Projects Coming Soon</h3>
