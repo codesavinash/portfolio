@@ -1,4 +1,4 @@
-// ===== Mobile Menu Toggle =====
+// Mobile Menu Toggle
 const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
@@ -25,7 +25,7 @@ navLinks.forEach(link => {
     });
 });
 
-// ===== Smooth Scrolling =====
+// Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -44,7 +44,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== Active Navigation Link on Scroll =====
+// Active Navigation Link on Scroll
 const sections = document.querySelectorAll('section[id]');
 
 function scrollActive() {
@@ -68,7 +68,7 @@ function scrollActive() {
 
 window.addEventListener('scroll', scrollActive);
 
-// ===== Header Shadow on Scroll =====
+// Header Shadow on Scroll
 function scrollHeader() {
     const header = document.getElementById('header');
     if (window.scrollY >= 50) {
@@ -80,7 +80,7 @@ function scrollHeader() {
 
 window.addEventListener('scroll', scrollHeader);
 
-// ===== Form Validation and Handling =====
+// Form Validation and Handling
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 const submitBtn = document.getElementById('submit-btn');
@@ -171,7 +171,7 @@ function showFormStatus(message, type) {
     }
 }
 
-// ===== Scroll Animation on Elements =====
+// Scroll Animation on Elements
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -191,7 +191,7 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
-// ===== Close mobile menu when clicking outside =====
+// Close mobile menu when clicking outside
 document.addEventListener('click', function(event) {
     const isClickInsideMenu = navMenu.contains(event.target);
     const isClickOnToggle = navToggle.contains(event.target);
@@ -201,7 +201,7 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// ===== Prevent body scroll when menu is open =====
+// Prevent body scroll when menu is open
 navToggle.addEventListener('click', () => {
     document.body.style.overflow = 'hidden';
 });
@@ -216,7 +216,7 @@ navLinks.forEach(link => {
     });
 });
 
-// ===== Project Filtering =====
+// Project Filtering
 const filterButtons = document.querySelectorAll('.projects__filter-btn');
 const projectCards = document.querySelectorAll('.project__card');
 
